@@ -1,13 +1,17 @@
 import {test} from '@playwright/test'
 import { CommonPageMethods } from '../pages/common-page/common-page.methods'
-import { LoginPageElements } from '../pages/login-page/login-page.elements'
 import { LoginPageMethods } from '../pages/login-page/login-page.methods'
+import { LoginPageData } from '../pages/login-page/login-page.data'
 
-test('Lgin', async({page})=>{
+const userCredentials = LoginPageData.credentials;
+
+test('Lgin', async ({ page }) =>{
     const commonPageMethods = new CommonPageMethods(page)
-    const loginPageElements = new LoginPageMethods(page)
+    const loginPageMethods = new LoginPageMethods(page)
 
     await commonPageMethods.navigateToTheApplication()
-    await loginPageElements.insertUsername('standard_user')
+    await loginPageMethods.insertUsername(userCredentials.usernames.standardUser)
+    await loginPageMethods.insertPassword(userCredentials.password.password)
+    await loginPageMethods.clickOnLoginButton()
     await page.waitForTimeout(4000)
 })

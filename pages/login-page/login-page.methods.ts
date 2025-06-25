@@ -15,7 +15,7 @@ export class LoginPageMethods{
     }
 
     async insertPassword(password: string){
-        await this.loginPageElements.textboxes.username.fill(password)
+        await this.loginPageElements.textboxes.password.fill(password)
     }
 
     async clickOnLoginButton(){
