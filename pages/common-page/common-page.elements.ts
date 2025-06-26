@@ -1,8 +1,8 @@
 import { Page } from "@playwright/test"
 
-export class CommonPageElemnts{
+export class CommonPageElements{
     private page: Page
-    
+
     constructor(page: Page){
         this.page = page
     }
