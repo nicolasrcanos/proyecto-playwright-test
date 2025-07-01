@@ -1,7 +1,7 @@
 import { Page } from "@playwright/test";
 import { CheckOutPageElements } from "./checkout-page.elements";
 
-export class CartPageMethods{
+export class CheckoutPageMethods {
     private page: Page
     private checkOutPageElements: CheckOutPageElements
 
@@ -15,11 +15,11 @@ export class CartPageMethods{
     }
 
     async insertlastName(lastName: string){
-        await this.checkOutPageElements.inputs.firstName.fill(lastName)
+        await this.checkOutPageElements.inputs.lastName.fill(lastName)
     }
 
     async insertPostalCode(postalCode: string){
-        await this.checkOutPageElements.inputs.firstName.fill(postalCode)
+        await this.checkOutPageElements.inputs.postalCode.fill(postalCode)
     }
 
     async clickOnCancelButton(){
